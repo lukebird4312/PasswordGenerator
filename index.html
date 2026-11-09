@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Tool</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
@@ -28,11 +28,38 @@
 
         </div>
 
+        <div class="section" >
+
+            <div style="width: 100%">
+
+                <input style="width: 60%" type="text" id="pass" name="pass" onkeyup="evaluatePass(this.value)">
+
+                <br><br>
+
+                <button onclick="myfunction()"> Generate Password </button>
+
+            </div>
+
+        </div>
+
         <div class="section">
 
             <div>
 
-                <input type="text" id="pass" name="pass" onkeyup="evaluatePass(this.value)">
+                <input style="width: 70%" type="range" min="1" max="100" value="50" id="charSlider">
+                <p>Characters: <span id="charNum"></span></p>
+
+                <p> 
+                    <input type="checkbox" id="lowerSwitch"> - Lowercase Characters
+                    <br>
+                    <input type="checkbox" id="upperSwitch"> - Uppercase characters
+                    <br>
+                    <input type="checkbox" id="numSwitch"> - Numerical Characters
+                    <br>
+                    <input type="checkbox" id="specialSwitch"> - Special Characters
+                </p>
+
+                <br>
 
                 <p style="font-size:20px;" id="rating">Your password is: </p>
 
@@ -157,6 +184,15 @@
 
     </script>
 
+    <script>
+        var slider = document.getElementById("charSlider");
+        var output = document.getElementById("charNum");
+        output.innerHTML = slider.value;
+        
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
 
 </body>
 

@@ -1,17 +1,5 @@
 /*
- * vault.js — encrypted password storage
- *
- * Design:
- *   master password --PBKDF2-SHA256 (600,000 iters, random 16-byte salt)--> 256-bit AES key
- *   each entry {site, username, password} --AES-256-GCM (fresh random 12-byte IV)--> ciphertext
- *
- * What is stored (localStorage key "p4vault"): salt, iteration count, IVs, ciphertexts.
- * What is NEVER stored: the master password, the key, or any plaintext (site names included).
- *
- * Wrong master password detection: a known "check" value is encrypted at vault creation.
- * On unlock we try to decrypt it; AES-GCM's authentication tag fails if the key is wrong.
- *
- * The derived key is a non-extractable CryptoKey kept only in memory; lock() discards it.
+ vault.js — encrypted password storage
  */
 
 const Vault = (() => {

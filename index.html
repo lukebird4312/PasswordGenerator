@@ -166,14 +166,14 @@
             else { rec.innerHTML += "- Increase password length"; rec.innerHTML += '<br>'; }
 
 
-            if ( /[A-Z]/.test(pass) ) { score += 15 }
+            if ( /[A-Z]/.test(oPass) ) { score += 15 }
             else { rec.innerHTML += "- Add uppercase character(s) to password"; rec.innerHTML += '<br>'; }
 
 
-            if ( /[0-9]/.test(pass) ) { score += 15 }
+            if ( /[0-9]/.test(oPass) ) { score += 15 }
             else { rec.innerHTML += "- Add numbers to password"; rec.innerHTML += '<br>'; }
 
-            if ( /\W/.test(pass) ) { score += 30 }
+            if ( /\W/.test(oPass) ) { score += 30 }
             else { rec.innerHTML += "- Add special characters to password (ex: $, %, *)"; rec.innerHTML += '<br>'; }
 
 
